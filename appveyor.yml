@@ -20,6 +20,7 @@ test_script:
   - set RUN_ON_NOT_OFFICIAL=
   - set RUBY_VER=2.3
   - set BRANCH=trunk
+  - gem install %DATABASE_ADAPTER%
   - bundle exec rake config/database.yml
   - bundle install
   - bundle exec rake ci:setup
