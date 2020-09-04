@@ -2,6 +2,8 @@
 # http://www.redmine.org/projects/redmine/wiki/Continuous_integration
 # You can also run tests on your environment.
 
+shallow_clone: true
+
 install:
   - SET PATH=C:\Ruby%ruby_version%\bin;%PATH%
   - ruby --version
@@ -16,7 +18,7 @@ test_script:
   - bundle install --without minimagick
   - set SCMS=mercurial
   - set RUN_ON_NOT_OFFICIAL=
-  - set RUBY_VER=1.9
+  - set RUBY_VER=2.3
   - set BRANCH=trunk
   - bundle exec rake config/database.yml
   - bundle install
@@ -28,10 +30,7 @@ environment:
     RAILS_ENV: test
     DATABASE_ADAPTER: sqlite3
   matrix:
-    - ruby_version: "193"
-    - ruby_version: "200"
-    - ruby_version: "200-x64"
-    - ruby_version: "21"
-    - ruby_version: "21-x64"
-    - ruby_version: "22"
-    - ruby_version: "22-x64"
+    - ruby_version: "23"
+    - ruby_version: "23-x64"
+    - ruby_version: "25"
+    - ruby_version: "25-x64"
